@@ -181,8 +181,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Candelizer API',
-    'DESCRIPTION': 'Candelizer Rest API',
+    'TITLE': 'Text Conventer API',
+    'DESCRIPTION': 'Text Conventer Rest API',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
