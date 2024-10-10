@@ -1,0 +1,58 @@
+{% extends '_frame.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-wrapper" data-bs-theme="dark">
+        <div class="pesel-box p-3 column">
+            <div class="col-12">
+                <form class="d-flex flex-column">
+                    <div class="mb-3">
+                        <label for="peselInput" class="form-label">PESEL:</label>
+                        <div class="row gx-3">
+                            <div class="col">
+                                <input type="text" maxlength="11" class="form-control" id="peselInput"
+                                       aria-describedby="peselHelp">
+                            </div>
+
+                            <div class="col-auto">
+                                <button class="btn btn-primary" id="checkPeselButton">Check PESEL</button>
+                            </div>
+                        </div>
+                        <div id="peselHelp" class="form-text">
+                            We won't save your PESEL. Every operation is performed on the client side.
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12" id="messageBox">
+            </div>
+            <div class="col-12">
+                <form class="d-flex flex-column">
+                    <div class="mb-3">
+                        <label for="birthdayInput" class="form-label">Birthday:</label>
+                        <input type="text" readonly class="form-control" id="birthdayInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="genderInput" class="form-label">Gender:</label>
+                        <input type="text" readonly class="form-control" id="genderInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="serialNumberInput" class="form-label">Serial number:</label>
+                        <input type="text" readonly class="form-control" id="serialNumberInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="checksumInput" class="form-label">Checksum:</label>
+                        <input type="text" readonly class="form-control" id="checksumInput">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'myapps/pesel_checker/PESELValidator.js' %}"></script>
+    <script src="{% static 'myapps/pesel_checker/pesel_checker.js' %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+    <link href="{% static 'myapps/pesel_checker/pesel_checker.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}

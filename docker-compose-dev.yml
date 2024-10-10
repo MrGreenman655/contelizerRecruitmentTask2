@@ -1,0 +1,35 @@
+services:
+  db:
+    container_name: ${POSTGRES_HOST}
+    image: postgres:15.1-alpine
+    env_file:
+      - ".env"
+    networks:
+      - contelizer-network
+    expose:
+      - 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  web:
+    container_name: ${PREFIX}-web
+    build : .
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:${WEB_PORT}"
+    depends_on:
+      - db
+    networks:
+      - contelizer-network
+    ports:
+      - "${WEB_PORT}:${WEB_PORT}"
+    env_file:
+      - ".env"
+    volumes:
+      - ./:/web
+
+
+networks:
+  contelizer-network:
+    external: false
+
+volumes:
+  postgres_data:

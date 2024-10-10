@@ -1,0 +1,31 @@
+body, html {
+  height: 100%;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.pesel-box {
+  border-radius: 15px;
+  min-height: 300px;
+  width: 500px;
+  background-color: #1F1F1F;
+}
+
+#messageBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.message--error {
+  color: #C10015;
+}
+.message--positive {
+  color: #4BB543;
+}
+
+/*# sourceMappingURL=pesel_checker.css.map */
