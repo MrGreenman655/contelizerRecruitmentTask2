@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'corsheaders',
     'fontawesomefree',
+
+    'myapps.pesel_checker',
 ]
 
 MIDDLEWARE = [
